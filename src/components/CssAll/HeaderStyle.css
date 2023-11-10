@@ -1,0 +1,18 @@
+.headerPart{
+    display: flex;
+}
+
+.imagePart{
+    width: 95px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flightlink{
+    font-size: 25px;
+    font-family: cursive;
+}
+
+.flightlink :hover{
+    color: red;
+}

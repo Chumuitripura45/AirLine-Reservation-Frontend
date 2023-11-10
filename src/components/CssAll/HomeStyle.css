@@ -1,0 +1,4 @@
+.cardPart{
+    display: grid;
+    grid-row: auto;
+}
