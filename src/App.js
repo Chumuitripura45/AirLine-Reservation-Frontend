@@ -6,6 +6,7 @@ import Contact from "./components/Contact";
 import Header from "./components/Header";
 import Flight from "./components/Flight";
 import Home from "./components/Home";
+import Booking from "./components/Booking";
 
 export function App() {
   return (
@@ -17,6 +18,7 @@ export function App() {
           <Route path="/signUp" element={<UserSign />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/booking" element={<Booking />} />
         </Routes>
       </Router>
     </div>

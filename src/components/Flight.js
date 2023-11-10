@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const Flight = () => {
   const [flights, setFlights] = useState([]);
@@ -145,7 +146,8 @@ const Flight = () => {
             <div>
               <strong>Price:</strong> {flight.price}
             </div>
-            <button onClick={() => handleBookFlight(flight.flightId)}>Book</button>
+            <Link to={`/booking`}>
+            <button onClick={() => handleBookFlight(flight.flightId)}>Book</button></Link>
           </div>
         ))}
       </div>
