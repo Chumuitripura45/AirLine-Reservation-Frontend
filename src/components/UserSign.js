@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faEnvelope, faLock, faKey,faFaceSmile } from '@fortawesome/free-solid-svg-icons';
 
 function UserSign() {
-    const API_BASE_URL = "http://localhost:5088/api/Users";
+    const API_BASE_URL = "http://localhost:5275/api/users";
   const [formData, setFormData] = useState({
     fullname: "",
     username: "",
