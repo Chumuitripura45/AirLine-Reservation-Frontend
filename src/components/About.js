@@ -1,11 +1,39 @@
-import React from 'react'
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import airImage from './Images/airAbout.jpg'
 
 function About() {
   return (
-    <div>
-      about web part 
+    <div className="py-5 bg-light">
+      <div className="container mx-auto px-4 text-dark">
+        <div className="row">
+          <div className="col-md-5">
+            <img
+              src={airImage}
+              alt="image"
+              className="img-fluid"
+            />
+          </div>
+          <div className="col-md-7">
+            <h2 className="text-2xl text-dark font-bold">
+            Welcome to our Airline App! We strive to provide you with the best
+            flight reservation experience. Whether you're a frequent flyer or
+            planning your first trip, we've got you covered.
+            </h2>
+            <p className="mt-4 text-dark">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum omnis voluptatem accusantium
+              nemo perspiciatis delectus atque autem! Voluptatum tenetur beatae unde aperiam, repellat
+              expedita consequatur! Officiis id consequatur atque doloremque!
+            </p>
+            <p className="mt-4 text-dark">
+              Nobis minus voluptatibus pariatur dignissimos libero quaerat iure expedita at? Asperiores
+              nemo possimus nesciunt dicta veniam aspernatur quam mollitia.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default About
+export default About;

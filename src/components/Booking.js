@@ -2,17 +2,18 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import { useLocation } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Booking() {
   const location = useLocation();
   const flightId = new URLSearchParams(location.search).get('flightId');
   const price = new URLSearchParams(location.search).get('price');
 
-  const API_BASE_URL = 'http://localhost:5275/api/bookings';
+  const API_BASE_URL = 'http://localhost:5088/api/Bookings';
 
   const [formData, setFormData] = useState({
-    userid: '', // You may need to fetch the user ID after user login
-    flightid: flightId, // Set the flightId from the URL parameter
+    userid: '',
+    flightid: flightId, 
     noOfPassengers: '',
     status: '',
     price: price,
@@ -57,86 +58,66 @@ function Booking() {
                       </p>
 
                       <form className="mx-1 mx-md-4" onSubmit={handleSubmit}>
-                        <div className="d-flex flex-row align-items-center mb-4">
-                          <div className="form-outline flex-fill mb-0">
-                            <label className="form-label">
-                              User ID
-                            </label>
-                            <input
-                              type="text"
-                              name="userid"
-                              value={formData.userid}
-                              onChange={handleChange}
-                              className="form-control"
-                              required
-                            />
-                          </div>
+                        <div className="mb-4">
+                          <label className="form-label">User ID</label>
+                          <input
+                            type="text"
+                            name="userid"
+                            value={formData.userid}
+                            onChange={handleChange}
+                            className="form-control"
+                            required
+                          />
                         </div>
 
-                        <div className="d-flex flex-row align-items-center mb-4">
-                          <div className="form-outline flex-fill mb-0">
-                            <label className="form-label">
-                              Flight ID
-                            </label>
-                            <input
-                              type="number"
-                              name="flightid"
-                              value={formData.flightid}
-                              onChange={handleChange}
-                              className="form-control"
-                              required
-                              disabled // Disabled to prevent user modification
-                            />
-                          </div>
+                        <div className="mb-4">
+                          <label className="form-label">Flight ID</label>
+                          <input
+                            type="number"
+                            name="flightid"
+                            value={formData.flightid}
+                            onChange={handleChange}
+                            className="form-control"
+                            required
+                            disabled // Disabled to prevent user modification
+                          />
                         </div>
 
-                        <div className="d-flex flex-row align-items-center mb-4">
-                          <div className="form-outline flex-fill mb-0">
-                            <label className="form-label">
-                              Number of Passengers
-                            </label>
-                            <input
-                              type="number"
-                              name="noOfPassengers"
-                              value={formData.noOfPassengers}
-                              onChange={handleChange}
-                              className="form-control"
-                              required
-                            />
-                          </div>
+                        <div className="mb-4">
+                          <label className="form-label">Number of Passengers</label>
+                          <input
+                            type="number"
+                            name="noOfPassengers"
+                            value={formData.noOfPassengers}
+                            onChange={handleChange}
+                            className="form-control"
+                            required
+                          />
                         </div>
 
-                        <div className="d-flex flex-row align-items-center mb-4">
-                          <div className="form-outline flex-fill mb-0">
-                            <label className="form-label">
-                              Status
-                            </label>
-                            <input
-                              type="text"
-                              name="status"
-                              value={formData.status}
-                              onChange={handleChange}
-                              className="form-control"
-                              required
-                            />
-                          </div>
+                        <div className="mb-4">
+                          <label className="form-label">Status</label>
+                          <input
+                            type="text"
+                            name="status"
+                            value={formData.status}
+                            onChange={handleChange}
+                            className="form-control"
+                            required
+                          />
                         </div>
 
-                        <div className="d-flex flex-row align-items-center mb-4">
-                          <div className="form-outline flex-fill mb-0">
-                            <label className="form-label">
-                              Price
-                            </label>
-                            <input
-                              type="number"
-                              name="price"
-                              value={formData.price}
-                              onChange={handleChange}
-                              className="form-control"
-                              required
-                              disabled
-                            />
-                          </div>
+                        <div className="mb-4">
+                          <label className="form-label">Price</label>
+                          <input
+                            type="number"
+                            name="price"
+                            value={formData.price}
+                            onChange={handleChange}
+                            className="form-control"
+                            required
+                            disabled
+                          />
                         </div>
 
                         <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
