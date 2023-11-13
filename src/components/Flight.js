@@ -52,16 +52,9 @@ const Flight = () => {
     filterFlights();
   }, [flights, searchParams]);
 
-  const handleBookFlight = async (flightId) => {
-    try {
-      // Create a booking for the selected flight
-      const response = await axios.post('/api/bookings', { flightId });
-      const bookingId = response.data.bookingId;
-      // Redirect to the booking page using the bookingId
-      window.location.href = `/bookings/${bookingId}`; // Replace with your booking page route
-    } catch (error) {
-      console.error('Error creating booking:', error);
-    }
+  const handleBookFlight = (flightId,price) => {
+    // Redirect to the booking page with the flightId as a URL parameter
+    window.location.href = `/booking?flightId=${flightId}&price=${price}`;
   };
 
   const formatDate = (dateStr) => {
@@ -81,46 +74,7 @@ const Flight = () => {
     <div>
       <h1>Flight List</h1>
       <div>
-        <input
-          type="text"
-          name="source"
-          value={searchParams.source}
-          onChange={handleInputChange}
-          placeholder="Source"
-          list="sourceOptions"
-        />
-        <datalist id="sourceOptions">
-          {availableSources.map((source) => (
-            <option key={source} value={source} />
-          ))}
-        </datalist>
-        <input
-          type="text"
-          name="destination"
-          value={searchParams.destination}
-          onChange={handleInputChange}
-          placeholder="Destination"
-          list="destinationOptions"
-        />
-        <datalist id="destinationOptions">
-          {availableDestinations.map((destination) => (
-            <option key={destination} value={destination} />
-          ))}
-        </datalist>
-        <input
-          type="date"
-          name="departureDate"
-          value={searchParams.departureDate}
-          onChange={handleInputChange}
-          placeholder="Departure Date"
-        />
-        <input
-          type="date"
-          name="arrivalDate"
-          value={searchParams.arrivalDate}
-          onChange={handleInputChange}
-          placeholder="Arrival Date"
-        />
+        {/* ... (input fields for filtering flights) */}
       </div>
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
         {filteredFlights.map((flight) => (
@@ -146,8 +100,7 @@ const Flight = () => {
             <div>
               <strong>Price:</strong> {flight.price}
             </div>
-            <Link to={`/booking`}>
-            <button onClick={() => handleBookFlight(flight.flightId)}>Book</button></Link>
+            <button onClick={() => handleBookFlight(flight.flightId,flight.price)}>Book</button>
           </div>
         ))}
       </div>
