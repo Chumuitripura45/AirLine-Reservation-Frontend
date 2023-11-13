@@ -74,7 +74,46 @@ const Flight = () => {
     <div>
       <h1>Flight List</h1>
       <div>
-        {/* ... (input fields for filtering flights) */}
+        {/* ... (input fields for filtering flights) */}<input
+          type="text"
+          name="source"
+          value={searchParams.source}
+          onChange={handleInputChange}
+          placeholder="Source"
+          list="sourceOptions"
+        />
+        <datalist id="sourceOptions">
+          {availableSources.map((source) => (
+            <option key={source} value={source} />
+          ))}
+        </datalist>
+        <input
+          type="text"
+          name="destination"
+          value={searchParams.destination}
+          onChange={handleInputChange}
+          placeholder="Destination"
+          list="destinationOptions"
+        />
+        <datalist id="destinationOptions">
+          {availableDestinations.map((destination) => (
+            <option key={destination} value={destination} />
+          ))}
+        </datalist>
+        <input
+          type="date"
+          name="departureDate"
+          value={searchParams.departureDate}
+          onChange={handleInputChange}
+          placeholder="Departure Date"
+        />
+        <input
+          type="date"
+          name="arrivalDate"
+          value={searchParams.arrivalDate}
+          onChange={handleInputChange}
+          placeholder="Arrival Date"
+        />
       </div>
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
         {filteredFlights.map((flight) => (
