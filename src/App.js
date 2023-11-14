@@ -7,6 +7,8 @@ import Header from "./components/Header";
 import Flight from "./components/Flight";
 import Home from "./components/Home";
 import Booking from "./components/Booking";
+import AdminLogin from "./components/AdminLogin.js";
+import Dashboard from "./components/Dashboard.js";
 
 export function App() {
   return (
@@ -19,6 +21,8 @@ export function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/booking" element={<Booking />} />
+          <Route path="/adminlogin" element={<AdminLogin />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </Router>
     </div>
