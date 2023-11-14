@@ -47,11 +47,6 @@ const Header = ({ isLoggedIn, username, onLogout }) => {
                   Contact
                 </NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink className="flightlink nav-link" to="/booking">
-                  Booking
-                </NavLink>
-              </li>
             </ul>
           </div>
 
