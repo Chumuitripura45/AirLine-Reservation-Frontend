@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Layout from './Layout';
 
 const Flight = () => {
   const [flights, setFlights] = useState([]);
@@ -54,7 +55,9 @@ const Flight = () => {
 
   const handleBookFlight = (flightId,price) => {
     // Redirect to the booking page with the flightId as a URL parameter
-    window.location.href = `/booking?flightId=${flightId}&price=${price}`;
+    localStorage.setItem('selectedFlightId', flightId);
+  localStorage.setItem('selectedFlightPrice', price);
+    window.location.href = `/booking`;
   };
 
   const formatDate = (dateStr) => {
@@ -72,6 +75,7 @@ const Flight = () => {
   };
 
   return (
+    <Layout>
     <div>
       <h1>Flight List</h1>
       <div>
@@ -145,6 +149,7 @@ const Flight = () => {
         ))}
       </div>
     </div>
+    </Layout>
   );
 };
 

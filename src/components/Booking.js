@@ -2,32 +2,66 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import { useLocation } from 'react-router-dom';
+import Layout from './Layout';
 
 function Booking() {
   const location = useLocation();
-  const flightId = new URLSearchParams(location.search).get('flightId');
-  const price = new URLSearchParams(location.search).get('price');
-
+  // const flightId = new URLSearchParams(location.search).get('flightId');
+  // const price = new URLSearchParams(location.search).get('price');
+  const flightId = localStorage.getItem('selectedFlightId');
+  const price = localStorage.getItem('selectedFlightPrice');
   const API_BASE_URL = 'http://localhost:5275/api/bookings';
 
   const [formData, setFormData] = useState({
-    userid: '', // You may need to fetch the user ID after user login
+    userid: localStorage.getItem('username') || '', // You may need to fetch the user ID after user login
     flightid: flightId, // Set the flightId from the URL parameter
     noOfPassengers: '',
-    status: '',
+    status: "Booked",
     price: price,
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+  const { name, value } = e.target;
+
+  // Update the number of passengers
+  if (name === 'noOfPassengers') {
+    const passengers = parseInt(value, 10);
+
+    if (!isNaN(passengers)) {
+      const updatedPrice = passengers * formData.price;
+
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: value,
+        price: isNaN(updatedPrice) ? prevData.price : updatedPrice,
+      }));
+    } else {
+      // Keep the default price if the number of passengers is not a valid number
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: value,
+      }));
+    }
+  } else {
+    // For other fields, update normally
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
-  };
+  }
+};
+
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const token = localStorage.getItem('token');
+
+  if (!token) {
+    // Handle the case where the token is missing (redirect to login, show an error, etc.)
+    toast.error('Authentication token is missing. Please log in.');
+    return;
+  }
     axios
       .post(API_BASE_URL, formData)
       .then((response) => {
@@ -42,6 +76,7 @@ function Booking() {
   };
 
   return (
+    <Layout>
     <div>
       <ToastContainer />
       <section className="vh-100" style={{ backgroundColor: '#eee' }}>
@@ -60,7 +95,7 @@ function Booking() {
                         <div className="d-flex flex-row align-items-center mb-4">
                           <div className="form-outline flex-fill mb-0">
                             <label className="form-label">
-                              User ID
+                              Username
                             </label>
                             <input
                               type="text"
@@ -69,6 +104,7 @@ function Booking() {
                               onChange={handleChange}
                               className="form-control"
                               required
+                              disabled
                             />
                           </div>
                         </div>
@@ -106,7 +142,7 @@ function Booking() {
                           </div>
                         </div>
 
-                        <div className="d-flex flex-row align-items-center mb-4">
+                        {/* <div className="d-flex flex-row align-items-center mb-4">
                           <div className="form-outline flex-fill mb-0">
                             <label className="form-label">
                               Status
@@ -120,7 +156,7 @@ function Booking() {
                               required
                             />
                           </div>
-                        </div>
+                        </div> */}
 
                         <div className="d-flex flex-row align-items-center mb-4">
                           <div className="form-outline flex-fill mb-0">
@@ -157,6 +193,7 @@ function Booking() {
         </div>
       </section>
     </div>
+    </Layout>
   );
 }
 

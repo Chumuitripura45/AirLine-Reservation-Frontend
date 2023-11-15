@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Layout from './Layout';
+import { NavLink } from 'react-router-dom';
 
 function Dashboard() {
   const [userData, setUserData] = useState([]);
@@ -79,7 +81,11 @@ function Dashboard() {
   };
 
   return (
+    
     <div>
+    <NavLink to="/">
+          <button className="btn btn-primary">Go to Home</button>
+        </NavLink>
       <h2>User Table</h2>
       <table>
         {/* Display User table */}
@@ -233,6 +239,7 @@ function Dashboard() {
         </button>
       </form>
     </div>
+    
   );
 }
 

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import airLine from "./Images/airLine.jpg";
@@ -6,19 +7,18 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faEnvelope, faLock, faKey,faFaceSmile } from '@fortawesome/free-solid-svg-icons';
-import { useNavigate } from "react-router-dom";
 import Layout from "./Layout";
 
-function UserSign() {
-    const API_BASE_URL = "http://localhost:5275/api/users";
-    const navigate = useNavigate();
+function Login() {
+  const navigate = useNavigate();
+    const API_BASE_URL = "http://localhost:5275/api/Users/login";
+    
   const [formData, setFormData] = useState({
-    fullname: "",
+
     username: "",
-    email: "",
+    
     password: "",
-    confirmPassword: "",
-    role: "",
+   
   });
 
   const handleChange = (e) => {
@@ -32,18 +32,39 @@ function UserSign() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(API_BASE_URL, formData)
+      .post(API_BASE_URL, null, {
+        params: {
+          username: formData.username,
+          password: formData.password,
+        },
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      })
       .then((response) => {
-        toast.success("User registered successfully");
-        console.log("User registered successfully:", response.data);
-        setFormData(response.data);
-        navigate("/");
+        if (response.data && response.data.token) {
+          // Store the token and username in local storage
+          localStorage.setItem('token', response.data.token);
+          localStorage.setItem('role', response.data.role);
+          localStorage.setItem('username', formData.username);
+  
+          toast.success("Logged in successfully.");
+          console.log("Logged in");
+  
+          // Redirect to the home page or any other necessary action
+          navigate('/'); // Replace '/home' with the path you want to navigate to
+        } else {
+          toast.error("Invalid credentials or not a user.");
+          console.log("Not logged in");
+        }
       })
       .catch((error) => {
-        toast.error("Error registering user:", error);
-        console.error("Error registering user:", error);
+        toast.error("Error logging in: " + error.message);
       });
   };
+  
+  
+  
 
   return (
     <Layout>
@@ -62,22 +83,7 @@ function UserSign() {
                       </p>
 
                       <form class="mx-1 mx-md-4" onSubmit={handleSubmit}>
-                        <div class="d-flex flex-row align-items-center mb-4">
-                          <FontAwesomeIcon icon={faUser} className="fa-lg me-2 fa-fw" style={{ marginBottom: "-27px" }}/>
-                          <div class="form-outline flex-fill mb-0">
-                            <label class="form-label">
-                              Full Name
-                            </label>
-                            <input
-                              type="text"
-                              name="fullname"
-                              value={formData.fullname}
-                              onChange={handleChange}
-                              class="form-control"
-                              required
-                            />
-                          </div>
-                        </div>
+                        
 
                         <div class="d-flex flex-row align-items-center mb-4">
                           <FontAwesomeIcon icon={faUser} className="fa-lg me-2 fa-fw" style={{ marginBottom: "-27px" }}/>
@@ -96,22 +102,7 @@ function UserSign() {
                           </div>
                         </div>
 
-                        <div class="d-flex flex-row align-items-center mb-4">
-                        <FontAwesomeIcon icon={faEnvelope} className="fa-lg me-3 fa-fw" style={{ marginBottom: "-27px" }} />
-                          <div class="form-outline flex-fill mb-0">
-                            <label class="form-label">
-                              Your Email
-                            </label>
-                            <input
-                              type="email"
-                              name="email"
-                              value={formData.email}
-                              onChange={handleChange}
-                              class="form-control"
-                              required
-                            />
-                          </div>
-                        </div>
+                        
 
                         <div class="d-flex flex-row align-items-center mb-4">
                         <FontAwesomeIcon icon={faLock} className="fa-lg me-3 fa-fw" style={{ marginBottom: "-27px" }} />
@@ -130,42 +121,11 @@ function UserSign() {
                           </div>
                         </div>
 
-                        <div class="d-flex flex-row align-items-center mb-4">
-                        <FontAwesomeIcon icon={faKey} className="fa-lg me-3 fa-fw" style={{ marginBottom: "-27px" }} />
-                          <div class="form-outline flex-fill mb-0">
-                            <label class="form-label">
-                              Confirm password
-                            </label>
-                            <input
-                              type="password"
-                              name="confirmPassword"
-                              value={formData.confirmPassword}
-                              onChange={handleChange}
-                              class="form-control"
-                              required
-                            />
-                          </div>
-                        </div>
-
-                        <div class="d-flex flex-row align-items-center mb-4">
-                        <FontAwesomeIcon icon={faFaceSmile} className="fa-lg me-3 fa-fw" style={{ marginBottom: "-27px" }} />
-                          <div class="form-outline flex-fill mb-0">
-                            <label class="form-label">
-                              Role
-                            </label>
-                            <input
-                              type="text"
-                              name="role"
-                              value={formData.role}
-                              onChange={handleChange}
-                              class="form-control"
-                            />
-                          </div>
-                        </div>
+                        
 
                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                           <button type="submit" class="btn btn-primary btn-lg">
-                            Register
+                            Login
                           </button>
                         </div>
                       </form>
@@ -185,4 +145,4 @@ function UserSign() {
   );
 }
 
-export default UserSign;
+export default Login;

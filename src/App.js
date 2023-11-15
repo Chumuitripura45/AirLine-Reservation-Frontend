@@ -9,6 +9,8 @@ import Home from "./components/Home";
 import Booking from "./components/Booking";
 import AdminLogin from "./components/AdminLogin.js";
 import Dashboard from "./components/Dashboard.js";
+import Login from "./components/Login.js";
+import MyBookings from "./components/MyBooking.js";
 
 export function App() {
   return (
@@ -23,6 +25,8 @@ export function App() {
           <Route path="/booking" element={<Booking />} />
           <Route path="/adminlogin" element={<AdminLogin />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/mybooking" element={<MyBookings />} />
         </Routes>
       </Router>
     </div>
