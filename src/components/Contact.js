@@ -7,10 +7,12 @@ import {
   faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
 import airImage from './Images/airAbout.jpg'
+import Layout from './Layout';
 
 function Contact() {
   return (
-    <div className="container mt-5">
+    <Layout>
+        <div className="container mt-5">
       <div className="row">
         <div className="col-md-6">
           <h1 className="text-3xl font-extrabold">Get in touch:</h1>
@@ -104,6 +106,7 @@ function Contact() {
           </div>
       </div>
     </div>
+    </Layout>
   );
 }
 

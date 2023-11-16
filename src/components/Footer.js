@@ -5,7 +5,7 @@ import airImage from './Images/airAbout.jpg'
 
 function Footer() {
   return (
-    <footer className="bg-white border-top">
+    <footer className="border-top" style={{marginTop : '64px'}}>
       <div className="container py-6">
         <div className="row">
           <div className="col-md-6 mb-3 mb-md-0">
@@ -21,11 +21,11 @@ function Footer() {
           <div className="col-md-6">
             <div className="row">
               <div className="col-md-4">
-                <h2 className="mb-4 text-sm font-semibold text-gray-900 uppercase">Resources</h2>
+                <h3 className="mb-4 text-sm font-semibold text-gray-900 uppercase">Resources</h3>
                 <ul className="list-unstyled text-gray-500 font-medium">
                   <li className="mb-2">
-                    <Link to="/" className="text-reset text-decoration-none">
-                      Home
+                    <Link to="/contact" className="text-reset text-decoration-none">
+                      Contact
                     </Link>
                   </li>
                   <li>
@@ -36,11 +36,11 @@ function Footer() {
                 </ul>
               </div>
               <div className="col-md-4">
-                <h2 className="mb-4 text-sm font-semibold text-gray-900 uppercase">Follow us</h2>
+                <h3 className="mb-4 text-sm font-semibold text-gray-900 uppercase">Follow us</h3>
                 <ul className="list-unstyled text-gray-500 font-medium">
                   <li className="mb-2">
                     <a
-                      href="https://github.com/chulbulsingh27"
+                      href="https://github.com/Chumuitripura45"
                       className="text-reset text-decoration-none"
                       target="_blank"
                       rel="noreferrer"
@@ -56,7 +56,7 @@ function Footer() {
                 </ul>
               </div>
               <div className="col-md-4">
-                <h2 className="mb-4 text-sm font-semibold text-gray-900 uppercase">Legal</h2>
+                <h3 className="mb-4 text-sm font-semibold text-gray-900 uppercase">Legal</h3>
                 <ul className="list-unstyled text-gray-500 font-medium">
                   <li className="mb-2">
                     <Link to="#" className="text-reset text-decoration-none">
@@ -74,11 +74,10 @@ function Footer() {
           </div>
         </div>
       </div>
-      <hr className="my-6 border-gray-200" />
       <div className="container">
         <div className="row justify-content-between">
           <div className="col-md-4 text-center text-md-left">
-            <span className="text-sm text-gray-500">
+            <span className="text-sm">
               © 2023{' '}
               <a href="https://github.com/Chumuitripura45/" className="text-reset text-decoration-none">
                 AirLine Reservation 
@@ -91,13 +90,13 @@ function Footer() {
               <Link to="#" className="text-gray-500 mr-3">
                 <i className="bi bi-facebook"></i>
               </Link>
-              <Link to="#" className="text-gray-500 mr-3">
+              <Link to="#" className="mr-3">
                 <i className="bi bi-twitter"></i>
               </Link>
-              <Link to="#" className="text-gray-500 mr-3">
+              <Link to="#" className=" mr-3">
                 <i className="bi bi-github"></i>
               </Link>
-              <Link to="#" className="text-gray-500">
+              <Link to="#" className="">
                 <i className="bi bi-dribbble"></i>
               </Link>
             </div>

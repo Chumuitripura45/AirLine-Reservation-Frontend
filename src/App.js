@@ -1,53 +1,34 @@
-// App.js
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import UserSign from "./components/UserSign";
 import About from "./components/About";
 import Contact from "./components/Contact";
-import Header from "./components/Header";
 import Flight from "./components/Flight";
 import Home from "./components/Home";
 import Booking from "./components/Booking";
-import Footer from "./components/Footer";
-import LogIn from "./components/LogIn";
+import AdminLogin from "./components/AdminLogin.js";
+import Dashboard from "./components/Dashboard.js";
+import Login from "./components/LogIn.js";
+import MyBookings from "./components/MyBooking.js";
 
 export function App() {
-  const [loggedInUsername, setLoggedInUsername] = useState("");
-
-  const handleLogin = (username) => {
-    setLoggedInUsername(username);
-  };
-
-  const handleLogout = () => {
-    setLoggedInUsername("");
-  };
-
   return (
-    <Router>
-      <div className="App">
-        <Header
-          isLoggedIn={loggedInUsername !== ""}
-          username={loggedInUsername}
-          onLogout={handleLogout}
-        />
+    <div className="App">
+      <Router>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/flight" element={<Flight />} />
-          <Route
-            path="/signUp"
-            element={<UserSign onLogin={handleLogin} />}
-          />
-          <Route
-            path="/logIN"
-            element={<LogIn onLogin={handleLogin} />}
-          />
+          <Route path="/signUp" element={<UserSign />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/booking" element={<Booking />} />
+          <Route path="/adminlogin" element={<AdminLogin />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/mybooking" element={<MyBookings />} />
         </Routes>
-        <Footer />
-      </div>
-    </Router>
+      </Router>
+    </div>
   );
 }
 
