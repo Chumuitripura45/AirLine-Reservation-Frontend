@@ -6,18 +6,18 @@ import Layout from "./Layout";
 function About() {
   return (
     <Layout>
-      <div className="py-5 bg-light">
+      <div className="py-5">
         <div className="container mx-auto px-4 text-dark">
           <div className="row">
             <div className="col-md-5">
               <img src={airImage} alt="image" className="img-fluid" />
             </div>
             <div className="col-md-7">
-              <h2 className="text-2xl text-dark font-bold">
+              <h3 className="text-2xl text-dark font-bold">
                 Welcome to our Airline App! We strive to provide you with the
                 best flight reservation experience. Whether you're a frequent
                 flyer or planning your first trip, we've got you covered.
-              </h2>
+              </h3>
               <p className="mt-4 text-dark">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum
                 omnis voluptatem accusantium nemo perspiciatis delectus atque

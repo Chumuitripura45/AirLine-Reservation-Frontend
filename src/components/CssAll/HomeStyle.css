@@ -1,5 +1,5 @@
 *{
-    background-color: rgb(125, 150, 224);
+    background-color: rgb(196, 206, 238);
 }
 span{
     color: #fff;
@@ -55,7 +55,9 @@ span{
 #img1Button{
     margin-top: 39px;
 }
-
+/* p{
+  color: #ffffff;
+} */
 .allVisit{
     display: flex;
     justify-content: center;

@@ -14,8 +14,8 @@ function Booking() {
   const API_BASE_URL = "http://localhost:5275/api/bookings";
 
   const [formData, setFormData] = useState({
-    userid: localStorage.getItem("username") || "", // You may need to fetch the user ID after user login
-    flightid: flightId, // Set the flightId from the URL parameter
+    userid: localStorage.getItem("username") || "", 
+    flightid: flightId,
     noOfPassengers: "" | 1,
     status: "Booked",
     price: price,
@@ -37,14 +37,12 @@ function Booking() {
           price: isNaN(updatedPrice) ? prevData.price : updatedPrice,
         }));
       } else {
-        // Keep the default price if the number of passengers is not a valid number
         setFormData((prevData) => ({
           ...prevData,
           [name]: value,
         }));
       }
     } else {
-      // For other fields, update normally
       setFormData((prevData) => ({
         ...prevData,
         [name]: value,
@@ -55,9 +53,7 @@ function Booking() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const token = localStorage.getItem("token");
-
     if (!token) {
-      // Handle the case where the token is missing (redirect to login, show an error, etc.)
       toast.error("Authentication token is missing. Please log in.");
       return;
     }

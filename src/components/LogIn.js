@@ -8,9 +8,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faEnvelope, faLock, faKey,faFaceSmile } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from "react-router-dom";
-// import Layout from "./Layout";
+import Layout from "./Layout";
 
-function Login({ onLogin }) {
+function Login() {
   const navigate = useNavigate();
     const API_BASE_URL = "http://localhost:5275/api/Users/login";
     
@@ -45,7 +45,7 @@ function Login({ onLogin }) {
           localStorage.setItem('role', response.data.role);
           localStorage.setItem('username', formData.username);
           toast.success("Logged in successfully.");
-          onLogin(response.data.username);
+          // onLogin(response.data.username);
           console.log("Logged in");
           navigate("/"); 
         } else {
@@ -53,13 +53,13 @@ function Login({ onLogin }) {
           console.log("Not logged in");
         }
       })
-      .catch((error) => {
-        toast.error("Error logging in: " + error.message);
+      .catch((error) => {                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+        toast.error("Wrong Password or Username");
       });
   };
 
   return (
-    // <Layout>
+    <Layout>
     <>
     <ToastContainer />
       <section class="vh-100" style={{ backgroundColor: "#eee" }}>
@@ -79,7 +79,7 @@ function Login({ onLogin }) {
                           <FontAwesomeIcon icon={faUser} className="fa-lg me-2 fa-fw" style={{ marginBottom: "-27px" }}/>
                           <div class="form-outline flex-fill mb-0">
                             <label class="form-label">
-                              user Name 
+                              User Name 
                             </label>
                             <input
                               type="text"
@@ -91,9 +91,6 @@ function Login({ onLogin }) {
                             />
                           </div>
                         </div>
-
-                        
-
                         <div class="d-flex flex-row align-items-center mb-4">
                         <FontAwesomeIcon icon={faLock} className="fa-lg me-3 fa-fw" style={{ marginBottom: "-27px" }} />
                           <div class="form-outline flex-fill mb-0">
@@ -110,9 +107,6 @@ function Login({ onLogin }) {
                             />
                           </div>
                         </div>
-
-                        
-
                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                           <button type="submit" class="btn btn-primary btn-lg">
                             Login
@@ -131,7 +125,7 @@ function Login({ onLogin }) {
         </div>
       </section>
     </>
-    // </Layout>
+  </Layout>
   );
 }
 

@@ -56,7 +56,7 @@ function Home() {
         <div class="container getPart">
           <div class="row">
             <div class="col d-flex">
-              <div class="card" style={{ width: "18rem" }}>
+              <div class="card" style={{ width: "18rem", border: '2px solid white' }}>
                 <img src={img1} class="card-img-top" alt="..." />
 
                 <div class="card-body">
@@ -72,7 +72,7 @@ function Home() {
                 </div>
               </div>
            
-              <div class="card" style={{ width: "18rem" }}>
+              <div class="card" style={{ width: "18rem", border: '2px solid white' }}>
                 <img src={img2} class="card-img-top" alt="..." />
 
                 <div class="card-body">
@@ -81,14 +81,14 @@ function Home() {
                      Enjoy an exclusive 6Experience at sula Vineyards when 
                      you book a flight to Nashik
                   </p>
-                  <div className="allVisit">
+                  <div className="allVisit" id="img2Button">
                   <a href="https://www.goindigo.in/campaigns/indigo-offers/sula-vineyards.html?linkNav=Sun%20Set%20Savour%7C2%7CGet%20Inspired" class="btn btn-primary">
                     Visit
                   </a>
                   </div>
                 </div>
               </div>
-              <div class="card" style={{ width: "18rem" }}>
+              <div class="card" style={{ width: "18rem", border: '2px solid white' }}>
                 <img src={img3} class="card-img-top" alt="..." />
                 <div class="card-body">
                   <h5 class="card-title">Eat.Stay.Love</h5>
@@ -103,7 +103,7 @@ function Home() {
                   </div>
                 </div>
               </div>
-              <div class="card" style={{ width: "18rem" }}>
+              <div class="card" style={{ width: "18rem", border: '2px solid white' }}>
                 <img src={img4} class="card-img-top" alt="..." />
                 <div class="card-body">
                   <h5 class="card-title">Travel Wanderlust</h5>
@@ -116,7 +116,6 @@ function Home() {
                       Visit
                   </a>
                   </div>
-                  
                 </div>
               </div>
             </div>

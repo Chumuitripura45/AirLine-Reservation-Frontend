@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Layout from './Layout';
-
-// ... (previous imports)
+import './CssAll/MyBookingStyle.css'
 
 const MyBookings = () => {
   const [bookings, setBookings] = useState([]);
@@ -32,13 +31,13 @@ const MyBookings = () => {
   return (
     <Layout>
         <div>
-      <h1>My Bookings</h1>
+      <h1 className='headerBooking'>My Bookings</h1>
       {bookings.length === 0 ? (
         <p>No bookings found for {username}.</p>
       ) : (
         <div style={{ display: 'flex', flexWrap: 'wrap' }}>
           {bookings.map((booking) => (
-            <div key={booking.bookingId} style={{ width: '30%', margin: '10px', padding: '10px', border: '1px solid #ccc', borderRadius: '5px', textAlign: 'left' }}>
+            <div key={booking.bookingId} style={{ width: '30%', margin: '10px', padding: '10px', border: '8px solid #ccc', borderRadius: '10px', textAlign: 'left' }} >
               <div>
                 <strong>UserID:</strong> {booking.userId}
               </div>
