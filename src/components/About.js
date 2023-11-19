@@ -7,7 +7,10 @@ import Footer from "./Footer";
 function About() {
   return (
     <Layout>
-      <div className="py-5">
+      <div style={{ textAlign: 'center', paddingBottom: '20px', fontFamily: 'Arial, sans-serif', fontSize: '24px', fontWeight: 'bold', color: '#333' }}>
+      We're more than just flights and destinations; we're the perfect match for your journey. <span style={{ color: "lightskyblue", fontWeight: 'bold', fontFamily: 'Georgia, serif', fontSize:"30px" }}>WELCOME ABOARD!</span>
+      </div>
+      <div className="py-5" >
         <div className="container mx-auto px-4 text-dark">
           <div className="row">
             <div className="col-md-5">
@@ -27,6 +30,17 @@ function About() {
               </p>
             </div>
           </div>
+        </div>
+        <div className="video-container" style={{paddingBottom : "200px"}}>
+          <iframe
+            width="100%"
+            height="400"
+            src="https://www.youtube.com/embed/WbiUYq-DQsI"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            frameBorder="0"
+            allowFullScreen
+          ></iframe>
         </div>
       </div>
       <Footer/>
