@@ -6,9 +6,12 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faEnvelope, faLock, faKey,faFaceSmile } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from "react-router-dom";
+import Layout from "./Layout";
 
 function UserSign() {
     const API_BASE_URL = "http://localhost:5275/api/users";
+    const navigate = useNavigate();
   const [formData, setFormData] = useState({
     fullname: "",
     username: "",
@@ -34,6 +37,7 @@ function UserSign() {
         toast.success("User registered successfully");
         console.log("User registered successfully:", response.data);
         setFormData(response.data);
+        navigate("/");
       })
       .catch((error) => {
         toast.error("Error registering user:", error);
@@ -42,6 +46,7 @@ function UserSign() {
   };
 
   return (
+    <Layout>
     <>
     <ToastContainer />
       <section class="vh-100" style={{ backgroundColor: "#eee" }}>
@@ -176,6 +181,7 @@ function UserSign() {
         </div>
       </section>
     </>
+    </Layout>
   );
 }
 
