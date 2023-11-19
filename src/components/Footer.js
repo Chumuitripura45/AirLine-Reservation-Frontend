@@ -14,7 +14,7 @@ function Footer() {
                 src={airImage}
                 className="mr-3 h-16"
                 alt="Logo"
-                style={{width : '25%', borderRadius : '10px', paddingTop : "45px"}}
+                style={{width : '25%', borderRadius : '10px', paddingTop : "40px"}}
               />
             </Link>
           </div>
