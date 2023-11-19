@@ -16,7 +16,7 @@ input{
 }
 input::placeholder {
     font-style: italic;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 #destinationLable{
@@ -52,7 +52,7 @@ th{
 }
 td{
     font-size: 17px;
-    color: aliceblue;
+    color: rgb(0, 0, 0);
     
 }
 .tableDesgin {
