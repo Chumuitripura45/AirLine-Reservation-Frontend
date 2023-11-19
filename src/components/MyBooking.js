@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Layout from './Layout';
 import './CssAll/MyBookingStyle.css'
+import Footer from './Footer';
 
 const MyBookings = () => {
   const [bookings, setBookings] = useState([]);
@@ -79,6 +80,7 @@ const MyBookings = () => {
         </div>
       )}
     </div>
+    <Footer/>
     </Layout>
   );
 };

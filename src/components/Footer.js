@@ -5,7 +5,7 @@ import airImage from './Images/logo.jpg'
 
 function Footer() {
   return (
-    <footer className="border-top" style={{marginTop : '64px'}}>
+    <footer className="border-top fixed-bottom" style={{marginTop : '64px', height:"18%"}}>
       <div className="container py-6">
         <div className="row">
           <div className="col-md-6 mb-3 mb-md-0">

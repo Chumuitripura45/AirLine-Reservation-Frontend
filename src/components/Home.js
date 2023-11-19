@@ -65,7 +65,7 @@ function Home() {
 
   return (
     <Layout>
-      <div>
+      <div style={{paddingBottom:"200px"}}>
         <div style={{ textAlign: 'center', padding: '20px', fontFamily: 'Arial, sans-serif', fontSize: '24px', fontWeight: 'bold', color: '#333' }}>
         "The world is a book, and those who do not <span style={{ color: '#ff6b6b', fontWeight: 'bold', fontFamily: 'Georgia, serif', fontSize:"30px" }}>TRAVEL</span> read only a page."
         </div>
@@ -87,7 +87,7 @@ function Home() {
         <div class="container getPart">
           <div class="row">
             <div class="col d-flex">
-              <div class="card" style={{ width: "18rem", border: '2px solid white' }}>
+              <div class="card" style={{ width: "18rem", border: '2px solid black' }}>
                 <img src={img1} class="card-img-top" alt="..." />
 
                 <div class="card-body">
@@ -103,7 +103,7 @@ function Home() {
                 </div>
               </div>
            
-              <div class="card" style={{ width: "18rem", border: '2px solid white' }}>
+              <div class="card" style={{ width: "18rem", border: '2px solid black' }}>
                 <img src={img2} class="card-img-top" alt="..." />
 
                 <div class="card-body">
@@ -119,7 +119,7 @@ function Home() {
                   </div>
                 </div>
               </div>
-              <div class="card" style={{ width: "18rem", border: '2px solid white' }}>
+              <div class="card" style={{ width: "18rem", border: '2px solid black' }}>
                 <img src={img3} class="card-img-top" alt="..." />
                 <div class="card-body">
                   <h5 class="card-title">Eat.Stay.Love</h5>
@@ -134,7 +134,7 @@ function Home() {
                   </div>
                 </div>
               </div>
-              <div class="card" style={{ width: "18rem", border: '2px solid white' }}>
+              <div class="card" style={{ width: "18rem", border: '2px solid black' }}>
                 <img src={img4} class="card-img-top" alt="..." />
                 <div class="card-body">
                   <h5 class="card-title">Travel Wanderlust</h5>

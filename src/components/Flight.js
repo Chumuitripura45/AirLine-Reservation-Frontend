@@ -168,7 +168,7 @@ const Flight = () => {
                       <div className="bc-from">
                         <span className="fs-5 fw-bold dataName">Source </span>
                         <br />
-                        <span className="detail-code dataGo">{flight.source}</span>
+                        <span className="detail-code dataGo" style={{color:"black"}}>{flight.source}</span>
                       </div>
                     </div>
                     <div className="col">
@@ -187,9 +187,9 @@ const Flight = () => {
                     </div>
                     <div className="col">
                       <div className="bc-to text-right">
-                        <span className="fs-5 fw-bold dataName">Destination </span>
+                        <span className="fs-5 fw-bold dataName" style={{color : "black"}}>Destination </span>
                         <br />
-                        <span className="detail-code dataGo">
+                        <span className="detail-code dataGo" style={{color : "black"}}>
                           {flight.destination}
                         </span>
                       </div>
@@ -199,16 +199,16 @@ const Flight = () => {
                   <div className="row mt-4">
                     <div className="col">
                       <div className="text-left">
-                        <span className="text-hline dataName">Price: </span>
-                        <span className="text-actual"> {flight.price}</span>
+                        <span className="text-hline dataName" style={{color:"black"}}>Price: </span>
+                        <span className="text-actual" style={{color : "black"}}> {flight.price}</span>
                       </div>
                     </div>
                   </div>
                   <div className="row mt-4">
                     <div className="col">
                       <div className="text-left">
-                        <span className="text-hline dataName">Class: </span>
-                        <span className="text-actual"> {flight.class}</span>
+                        <span className="text-hline dataName" style={{color:"black"}}>Class: </span>
+                        <span className="text-actual" style={{color : "black"}}> {flight.class}</span>
                       </div>
                     </div>
                   </div>

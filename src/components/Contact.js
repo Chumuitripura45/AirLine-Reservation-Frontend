@@ -6,8 +6,9 @@ import {
   faPhone,
   faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
-import airImage from './Images/airAbout.jpg'
+import airImage from './Images/airhostess.jpg'
 import Layout from './Layout';
+import Footer from "./Footer";
 
 function Contact() {
   return (
@@ -106,6 +107,7 @@ function Contact() {
           </div>
       </div>
     </div>
+    <Footer/>
     </Layout>
   );
 }

@@ -2,6 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import airImage from "./Images/airAbout.jpg";
 import Layout from "./Layout";
+import Footer from "./Footer";
 
 function About() {
   return (
@@ -28,6 +29,7 @@ function About() {
           </div>
         </div>
       </div>
+      <Footer/>
     </Layout>
   );
 }
