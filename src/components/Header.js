@@ -49,6 +49,12 @@ const Header = () => {
                 <NavLink className="nav-link" to="/flight" style={{backgroundColor:"white"}}>
                   Flight
                 </NavLink>
+              
+              </li>
+              <li className="nav-item">
+                <NavLink className="flightlink nav-link" to="/mybooking" style={{backgroundColor:"white"}}>
+                  My Bookings
+                </NavLink>
               </li>
               <li className="nav-item">
                 <NavLink className="flightlink nav-link" to="/about" style={{backgroundColor:"white"}}>
@@ -60,11 +66,7 @@ const Header = () => {
                   Contact
                 </NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink className="flightlink nav-link" to="/mybooking" style={{backgroundColor:"white"}}>
-                  MyBooking
-                </NavLink>
-              </li>
+              
             </ul>
           </div>
           <div className="ml-auto d-flex" style={{backgroundColor:"white"}}>
