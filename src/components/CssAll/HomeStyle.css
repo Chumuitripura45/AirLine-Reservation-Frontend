@@ -24,7 +24,6 @@ span{
   }
   .slide {
     display: none;
-    /* transition: opacity 1s ease; */
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
   }
@@ -61,9 +60,7 @@ span{
 #img1Button{
     margin-top: 39px;
 }
-/* p{
-  color: #ffffff;
-} */
+
 .allVisit{
     display: flex;
     justify-content: center;

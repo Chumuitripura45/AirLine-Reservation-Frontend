@@ -39,9 +39,6 @@ function Home() {
     };
   }, []);
 
-  
-
-
   useEffect(() => {
     const interval = setInterval(() => {
       setTransitioning(true);
