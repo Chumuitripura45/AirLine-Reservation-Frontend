@@ -15,7 +15,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import Layout from "./Layout";
 
-function UserSign() {
+function AdminSignUp() {
   const API_BASE_URL = "http://localhost:5275/api/users";
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -24,7 +24,7 @@ function UserSign() {
     email: "",
     password: "",
     confirmPassword: "",
-    role: "customer",
+    role: "admin",
   });
 
   const handleChange = (e) => {
@@ -210,4 +210,4 @@ function UserSign() {
   );
 }
 
-export default UserSign;
+export default AdminSignUp;
