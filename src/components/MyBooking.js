@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Layout from './Layout';
 import './CssAll/MyBookingStyle.css'
-import Footer from './Footer';
+import { ToastContainer,toast } from 'react-toastify';
 
 const MyBookings = () => {
   const [bookings, setBookings] = useState([]);
@@ -28,10 +28,24 @@ const MyBookings = () => {
     const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
+  
+  const handleDelete = (id) => {
+    axios.delete(`http://localhost:5275/api/bookings/${id}`)
+      .then(() => {
+        console.log('Booking deleted successfully');
+        toast.success("Successufull booking is Cancel")
+        window.location.href = '/';
+      })
+      .catch((error) => {
+        console.error('Error deleting booking:', error);
+        toast.error("Error logging in: " + error.message);
+      });
+  };
 
   return (
     <Layout>
         <div>
+        <ToastContainer />
       <h1 className='headerBooking'>My Bookings</h1>
       {bookings.length === 0 ? (
         <p>No bookings found for {username}.</p>
@@ -46,7 +60,7 @@ const MyBookings = () => {
                 <strong>Name:</strong> {booking.user.fullName}
               </div>
               <div>
-                <strong>Flight ID:</strong> {booking.flightId}
+                <strong>Booking ID:</strong> {booking.bookingId}
               </div>
               <div>
                 <div>
@@ -69,18 +83,21 @@ const MyBookings = () => {
                 </div>
                 <strong>Number of Passengers:</strong> {booking.noOfPassengers}
               </div>
-              <div>
+              {/* <div>
                 <strong>Status:</strong> {booking.status}
-              </div>
+              </div> */}
               <div>
                 <strong>Price:</strong> {booking.price}
+              </div>
+              <br />
+              <div>
+                <button type='button' className="btn btn-danger" onClick={() => handleDelete(booking.bookingId, "booking")}>Cancel</button>
               </div>
             </div>
           ))}
         </div>
       )}
     </div>
-    <Footer/>
     </Layout>
   );
 };

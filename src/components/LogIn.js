@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
-import airLine from "./Images/airLine.jpg";
+import airLine from "./Images/login.png";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faEnvelope, faLock, faKey,faFaceSmile } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faLock,} from '@fortawesome/free-solid-svg-icons';
 import Layout from "./Layout";
 
 function Login() {
@@ -59,7 +59,8 @@ function Login() {
         }
       })
       .catch((error) => {
-        toast.error("Error logging in: " + error.message);
+        // toast.error("Error logging in: " + error.message);
+        toast.error("Invalid credentials or not a user.")
       });
   };
   

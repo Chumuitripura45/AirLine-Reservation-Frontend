@@ -4,33 +4,31 @@ import { ToastContainer, toast } from "react-toastify";
 import { useLocation } from "react-router-dom";
 import Layout from "./Layout";
 import { NavLink } from "react-router-dom";
-
+ 
 function Booking() {
   const location = useLocation();
-  // const flightId = new URLSearchParams(location.search).get('flightId');
-  // const price = new URLSearchParams(location.search).get('price');
   const flightId = localStorage.getItem("selectedFlightId");
   const price = localStorage.getItem("selectedFlightPrice");
   const API_BASE_URL = "http://localhost:5275/api/bookings";
-
+ 
   const [formData, setFormData] = useState({
-    userid: localStorage.getItem("username") || "", 
+    userid: localStorage.getItem("username") || "",
     flightid: flightId,
     noOfPassengers: "" | 1,
     status: "Booked",
     price: price,
   });
-
+ 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
+ 
     // Update the number of passengers
     if (name === "noOfPassengers") {
       const passengers = parseInt(value, 10);
-
+ 
       if (!isNaN(passengers)) {
         const updatedPrice = passengers * formData.price;
-
+ 
         setFormData((prevData) => ({
           ...prevData,
           [name]: value,
@@ -49,7 +47,7 @@ function Booking() {
       }));
     }
   };
-
+ 
   const handleSubmit = (e) => {
     e.preventDefault();
     const token = localStorage.getItem("token");
@@ -69,12 +67,12 @@ function Booking() {
         console.error("Error creating booking:", error);
       });
   };
-
+ 
   return (
     <Layout>
       <div>
         <ToastContainer />
-        <section className="vh-100" style={{ backgroundColor: "#eee" }}>
+        <section className="vh-100" style={{ backgroundColor: "#eee"}}>
           <div className="container h-100">
             <div className="row d-flex justify-content-center align-items-center h-100">
               <div className="col-lg-12 col-xl-11">
@@ -87,7 +85,7 @@ function Booking() {
                         <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
                           Booking Form
                         </p>
-
+ 
                         <form className="mx-1 mx-md-4" onSubmit={handleSubmit}>
                           <div className="d-flex flex-row align-items-center mb-4">
                             <div className="form-outline flex-fill mb-0">
@@ -103,7 +101,7 @@ function Booking() {
                               />
                             </div>
                           </div>
-
+ 
                           <div className="d-flex flex-row align-items-center mb-4">
                             <div className="form-outline flex-fill mb-0">
                               <label className="form-label">Flight ID</label>
@@ -118,7 +116,7 @@ function Booking() {
                               />
                             </div>
                           </div>
-
+ 
                           <div className="d-flex flex-row align-items-center mb-4">
                             <div className="form-outline flex-fill mb-0">
                               <label className="form-label">
@@ -134,7 +132,7 @@ function Booking() {
                               />
                             </div>
                           </div>
-
+ 
                           {/* <div className="d-flex flex-row align-items-center mb-4">
                           <div className="form-outline flex-fill mb-0">
                             <label className="form-label">
@@ -150,7 +148,7 @@ function Booking() {
                             />
                           </div>
                         </div> */}
-
+ 
                           <div className="d-flex flex-row align-items-center mb-4">
                             <div className="form-outline flex-fill mb-0">
                               <label className="form-label">Price</label>
@@ -165,17 +163,12 @@ function Booking() {
                               />
                             </div>
                           </div>
-
+ 
                           <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                             <button
                               type="submit"
                               className="btn btn-primary btn-lg">
-                              <NavLink
-                                className=" nav-link"
-                                //to="/mybooking"
-                                >
-                                Submit
-                              </NavLink>
+                              Submit
                             </button>
                           </div>
                         </form>
@@ -191,5 +184,5 @@ function Booking() {
     </Layout>
   );
 }
-
+ 
 export default Booking;

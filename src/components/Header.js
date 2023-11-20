@@ -93,7 +93,9 @@ const Header = () => {
                 )}
                 </div>
                 <button className="btn btn-primary" onClick={handleLogout}>
-                  Logout
+                  <NavLink className="text-white nav-link" to="/">
+                      Logout
+                  </NavLink>
                 </button>
               </>
             ) : (
