@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
-import airLine from "./Images/airhistess_1.jpg";
+import airLine from "./Images/wallpaperflare.com_wallpaper (1).jpg";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
