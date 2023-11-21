@@ -170,11 +170,12 @@ function Booking() {
                             <button
                               type="submit"
                               className="btn btn-primary btn-lg">
-                              <NavLink
+                              {/* <NavLink
                                 className=" nav-link"
                                 to="/mybooking">
                                 Submit
-                              </NavLink>
+                              </NavLink> */}
+                              submit
                             </button>
                           </div>
                         </form>

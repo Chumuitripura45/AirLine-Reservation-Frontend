@@ -84,121 +84,151 @@ function Dashboard() {
       <div class="container">
         <h2>Add Flight</h2>
         <div>
-          <div class="mb-6"> 
-            <label for="source" class="form-label allSide">
-              Source:
-            </label>
-            <input
-              type="text"
-              className="allSide"
-              id="source"
-              value={newFlight.source}
-              onChange={(e) =>
-                setNewFlight({ ...newFlight, source: e.target.value })
-              }
-              placeholder="Enter your source"
-            />
-
-            <label
-              for="destination"
-              class="form-label allSide"
-              id="destinationLable">
-              Destination:
-            </label>
-            <input
-              type="text"
-              className="allSide"
-              id="destination"
-              value={newFlight.destination}
-              onChange={(e) =>
-                setNewFlight({ ...newFlight, destination: e.target.value })
-              }
-              placeholder="Enter your destination"
-            />
-            <br />
-            <label for="destination" class="form-label allSide">
-              Departure Date:
-            </label>
-            <input
-              type="date"
-              className="allSide"
-              value={newFlight.departureDate}
-              onChange={(e) =>
-                setNewFlight({ ...newFlight, departureDate: e.target.value })
-              }
-            />
-            <label
-              for="destination"
-              class="form-label allSide"
-              id="destinationTime"
-              >
-              Departure Time:
-            </label>
-            <input
-              type="text"
-              className="allSide"
-              value={newFlight.departureTime}
-              onChange={(e) =>
-                setNewFlight({ ...newFlight, departureTime: e.target.value })
-              }
-              placeholder="Enter your destination time"
-            />
-            <br />
-            <label for="arrival" class="form-label allSide">
-              Arrival Date:
-            </label>
-            <input
-              type="date"
-              className="allSide"
-              value={newFlight.arrivalDate}
-              onChange={(e) =>
-                setNewFlight({ ...newFlight, arrivalDate: e.target.value })
-              }
-              
-            />
-            <label
-              for="arrival"
-              class="form-label allSide"
-              id="arrivalTime">
-              Arrival Time:
-            </label>
-            <input
-              type="text"
-              className="allSide"
-              value={newFlight.arrivalTime}
-              onChange={(e) =>
-                setNewFlight({ ...newFlight, arrivalTime: e.target.value })
-              }
-              placeholder="Enter your arrival time"
-            />
-            <br />
-            <label for="destination" class="form-label allSide">
-              Price:
-            </label>
-            <input
-              type="number"
-              className="allSide"
-              value={newFlight.price}
-              onChange={(e) =>
-                setNewFlight({ ...newFlight, price: e.target.value })
-              }
-              placeholder="Enter your price"
-            />
-            <label
-              for="Class"
-              class="form-label allSide"
-              id="classPart">
-              Class:
-            </label>
-            <input
-              type="text"
-              className="allSide"
-              value={newFlight.class}
-              onChange={(e) =>
-                setNewFlight({ ...newFlight, class: e.target.value })
-              }
-              placeholder="Enter your class"
-            />
+          <div className="row">
+          <div className="col-md-6">
+            <div className="mb-3">
+              <label htmlFor="source" className="form-label">
+                 Source:
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="source"
+                value={newFlight.source}
+                onChange={(e) =>
+                  setNewFlight({ ...newFlight, source: e.target.value })
+                }
+                 placeholder="Enter your source"
+              />
+            </div>
+          </div>
+          <div className="col-md-6">
+            <div className="mb-3">
+              <label htmlFor="destination" className="form-label">
+                Destination:
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="destination"
+                value={newFlight.destination}
+                onChange={(e) =>
+                  setNewFlight({ ...newFlight, destination: e.target.value })
+                }
+                placeholder="Enter your destination"
+              />
+            </div>
+            </div>
+            <div className="row">
+            <div className="col-md-6">
+              <div className="mb-3">
+                <label htmlfor="destination" class="form-label">
+                  Departure Date:
+                </label>
+                <input
+                  type="date"
+                  className="form-control"
+                  value={newFlight.departureDate}
+                  onChange={(e) =>
+                    setNewFlight({ ...newFlight, departureDate: e.target.value })
+                  }
+                />
+              </div>
+            </div>
+            <div className="col-md-6">
+              <div className="mb-3" style={{paddingLeft:"10px"}}>
+                <label
+                  htmlfor="destination"
+                  class="form-label"
+                  id="departureTime"
+                >
+                  Departure Time:
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  value={newFlight.departureTime}
+                  onChange={(e) =>
+                    setNewFlight({ ...newFlight, departureTime: e.target.value })
+                  }
+                   placeholder="Enter your destination time"
+                />
+              </div>
+            </div>
+            </div>
+            <div className="row">
+            <div className="col-md-6">
+              <div className="mb-3">
+                <label for="arrival" class="form-label allSide">
+                  Arrival Date:
+                </label>
+                <input
+                  type="date"
+                  className="form-control"
+                  value={newFlight.arrivalDate}
+                  onChange={(e) =>
+                    setNewFlight({ ...newFlight, arrivalDate: e.target.value })
+                  }
+                />
+              </div>
+            </div>
+            <div className="col-md-6">
+              <div className="mb-3" style={{paddingLeft:"10px"}}>
+                <label
+                  for="arrival"
+                  class="form-label"  style={{marginTop:"15px"}}>
+                    Arrival Time:
+                </label>
+                <input
+                type="text"
+                className="form-control"
+                value={newFlight.arrivalTime}
+                onChange={(e) =>
+                  setNewFlight({ ...newFlight, arrivalTime: e.target.value })
+                }
+                placeholder="Enter your arrival time"
+                />
+              </div>
+            </div>
+            </div>
+            <div className="row">
+            <div className="col-md-6">
+              <div className="mb-3">
+                <label for="destination" class="form-label allSide">
+                  Price:
+                </label>
+                <input
+                  type="number"
+                  className="form-control"
+                  value={newFlight.price}
+                  onChange={(e) =>
+                    setNewFlight({ ...newFlight, price: e.target.value })
+                  }
+                  placeholder="Enter your price"
+                />
+              </div>
+            </div>
+            <div className="col-md-6">
+              <div className="mb-3" style={{paddingLeft:"10px"}}>
+                <label
+                  for="Class"
+                  class="form-label"
+                  style={{marginTop:"15px"}}
+                >
+                    Class:
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  value={newFlight.class}
+                  onChange={(e) =>
+                    setNewFlight({ ...newFlight, class: e.target.value })
+                  }
+                  placeholder="Enter your class"
+                />
+              </div>
+            </div>
+            </div>
           </div>
           <div className="col-md-4 d-flex align-items-end justify-content-center flightAdd">
             <button
