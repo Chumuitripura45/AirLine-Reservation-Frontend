@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import airLine from "./Images/wallpaperflare.com_wallpaper (1).jpg";
@@ -7,7 +7,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faEnvelope, faLock, faKey,faFaceSmile } from '@fortawesome/free-solid-svg-icons';
-import { useNavigate } from "react-router-dom";
 import Layout from "./Layout";
 
 function Login() {
@@ -15,8 +14,11 @@ function Login() {
     const API_BASE_URL = "http://localhost:5275/api/Users/login";
     
   const [formData, setFormData] = useState({
+
     username: "",
+    
     password: "",
+   
   });
 
   const handleChange = (e) => {
@@ -40,23 +42,29 @@ function Login() {
         },
       })
       .then((response) => {
-        if (response.data && response.data.token || response.data.username) {
+        if (response.data && response.data.token) {
+          // Store the token and username in local storage
           localStorage.setItem('token', response.data.token);
           localStorage.setItem('role', response.data.role);
           localStorage.setItem('username', formData.username);
+  
           toast.success("Logged in successfully.");
-          // onLogin(response.data.username);
           console.log("Logged in");
-          navigate("/"); 
+  
+          // Redirect to the home page or any other necessary action
+          navigate('/'); // Replace '/home' with the path you want to navigate to
         } else {
           toast.error("Invalid credentials or not a user.");
           console.log("Not logged in");
         }
       })
-      .catch((error) => {                                                                                                                                                                                                                                                                                                                                                                                                                                                             
-        toast.error("Wrong Password or Username");
+      .catch((error) => {
+        toast.error("Error logging in: " + error.message);
       });
   };
+  
+  
+  
 
   return (
     <Layout>
@@ -71,15 +79,21 @@ function Login() {
                   <div class="row justify-content-center">
                     <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                       <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
-                        LogIn 
+                        Login
                       </p>
 
                       <form class="mx-1 mx-md-4" onSubmit={handleSubmit}>
+                        
+
                         <div class="d-flex flex-row align-items-center mb-4">
                           <FontAwesomeIcon icon={faUser} className="fa-lg me-2 fa-fw" style={{ marginBottom: "-27px" }}/>
                           <div class="form-outline flex-fill mb-0">
                             <label class="form-label">
-                              User Name 
+
+
+
+                              Username 
+
                             </label>
                             <input
                               type="text"
@@ -91,6 +105,9 @@ function Login() {
                             />
                           </div>
                         </div>
+
+                        
+
                         <div class="d-flex flex-row align-items-center mb-4">
                         <FontAwesomeIcon icon={faLock} className="fa-lg me-3 fa-fw" style={{ marginBottom: "-27px" }} />
                           <div class="form-outline flex-fill mb-0">
@@ -107,6 +124,9 @@ function Login() {
                             />
                           </div>
                         </div>
+
+                        
+
                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                           <button type="submit" class="btn btn-primary btn-lg">
                             Login
@@ -125,7 +145,7 @@ function Login() {
         </div>
       </section>
     </>
-  </Layout>
+    </Layout>
   );
 }
 

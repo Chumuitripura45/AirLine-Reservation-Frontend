@@ -66,7 +66,7 @@ function UserSign() {
                           <FontAwesomeIcon icon={faUser} className="fa-lg me-2 fa-fw" style={{ marginBottom: "-27px" }}/>
                           <div class="form-outline flex-fill mb-0">
                             <label class="form-label">
-                              Full Name
+                              Name
                             </label>
                             <input
                               type="text"
@@ -83,7 +83,7 @@ function UserSign() {
                           <FontAwesomeIcon icon={faUser} className="fa-lg me-2 fa-fw" style={{ marginBottom: "-27px" }}/>
                           <div class="form-outline flex-fill mb-0">
                             <label class="form-label">
-                              user Name 
+                              Username 
                             </label>
                             <input
                               type="text"
@@ -100,7 +100,7 @@ function UserSign() {
                         <FontAwesomeIcon icon={faEnvelope} className="fa-lg me-3 fa-fw" style={{ marginBottom: "-27px" }} />
                           <div class="form-outline flex-fill mb-0">
                             <label class="form-label">
-                              Your Email
+                              Email
                             </label>
                             <input
                               type="email"
@@ -134,7 +134,7 @@ function UserSign() {
                         <FontAwesomeIcon icon={faKey} className="fa-lg me-3 fa-fw" style={{ marginBottom: "-27px" }} />
                           <div class="form-outline flex-fill mb-0">
                             <label class="form-label">
-                              Confirm password
+                              Confirm Password
                             </label>
                             <input
                               type="password"

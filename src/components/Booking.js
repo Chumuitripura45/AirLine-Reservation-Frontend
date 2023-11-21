@@ -172,7 +172,8 @@ function Booking() {
                               className="btn btn-primary btn-lg">
                               {/* <NavLink
                                 className=" nav-link"
-                                to="/mybooking">
+                                //to="/mybooking"
+                                >
                                 Submit
                               </NavLink> */}
                               submit
