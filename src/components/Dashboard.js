@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { NavLink } from "react-router-dom";
 import Layout from "./Layout";
 import './CssAll/DashboardStyle.css'
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Dashboard() {
   const [userData, setUserData] = useState([]);
@@ -40,6 +41,7 @@ function Dashboard() {
   const handleDelete = (id, table) => {
     // Send a DELETE request to the API to delete the item
     axios.delete(`http://localhost:5275/api/${table}s/${id}`).then(() => {
+      toast.success("successfull deleted")
       // After successful deletion, re-fetch the data to update the component
       axios.get(`http://localhost:5275/api/${table}s`).then((response) => {
         switch (table) {
@@ -62,6 +64,7 @@ function Dashboard() {
   const handleAddFlight = () => {
     // Send a POST request to the API to add a new flight
     axios.post("http://localhost:5275/api/Flights", newFlight).then(() => {
+      toast.success("successfull added")
       // After successful addition, re-fetch the flight data to update the component
       axios.get("http://localhost:5275/api/Flights").then((response) => {
         setFlightData(response.data);
@@ -76,16 +79,20 @@ function Dashboard() {
         price: 0,
         class: "",
       });
+    })
+    .catch((error) => {
+      toast.error("Input the flight data");
     });
   };
 
   return (
     <Layout>
       <div class="container">
+        <ToastContainer />
         <h2>Add Flight</h2>
         <div>
           <div class="mb-6"> 
-            <label for="source" class="form-label allSide">
+            <label for="source" class="form-label allSide" style={{marginRight : '71px'}}>
               Source:
             </label>
             <input
@@ -116,7 +123,7 @@ function Dashboard() {
               placeholder="Enter your destination"
             />
             <br />
-            <label for="destination" class="form-label allSide">
+            <label for="destination" class="form-label allSide" >
               Departure Date:
             </label>
             <input
@@ -144,7 +151,7 @@ function Dashboard() {
               placeholder="Enter your destination time"
             />
             <br />
-            <label for="arrival" class="form-label allSide">
+            <label for="arrival" class="form-label allSide" style={{marginRight : '32px'}}>
               Arrival Date:
             </label>
             <input
@@ -172,7 +179,7 @@ function Dashboard() {
               placeholder="Enter your arrival time"
             />
             <br />
-            <label for="destination" class="form-label allSide">
+            <label for="destination" class="form-label allSide" style={{marginRight : '90px'}}>
               Price:
             </label>
             <input
