@@ -27,6 +27,7 @@ const Header = () => {
     localStorage.clear();
     setLoggedIn(false);
     setUsername("");
+    navigate("/");
   };
 
   return (
